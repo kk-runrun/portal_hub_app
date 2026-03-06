@@ -30,7 +30,7 @@ def inject_styles() -> None:
             margin: 0 0 14px 0;
             font-size: 48px;
             font-weight: 800;
-            color: #111827;
+            color: #000000 !important;
             letter-spacing: 0.5px;
         }
         .cards-grid {
@@ -53,7 +53,7 @@ def inject_styles() -> None:
             margin: 0;
             font-size: 34px;
             font-weight: 700;
-            color: #111827;
+            color: #000000 !important;
             line-height: 1.2;
             word-break: break-word;
         }
