@@ -9,7 +9,7 @@ LINKS_PATH = BASE_DIR / "portal_links.json"
 
 
 def load_links() -> dict:
-    with LINKS_PATH.open("r", encoding="utf-8") as f:
+    with LINKS_PATH.open("r", encoding="utf-8-sig") as f:
         return json.load(f)
 
 
