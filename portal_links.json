@@ -1,0 +1,24 @@
+{
+  "apps": [
+    {
+      "name": "智能翻译工作台",
+      "desc": "ngrok 外网入口（固定跳转）",
+      "url": "https://inconsequent-kora-uninitiated.ngrok-free.dev"
+    },
+    {
+      "name": "视频字幕提取",
+      "desc": "请填入视频字幕提取的上线链接",
+      "url": ""
+    },
+    {
+      "name": "读取图包文字",
+      "desc": "本地页面化工具（如需外网请补上线链接）",
+      "url": ""
+    },
+    {
+      "name": "查询文案侵权词",
+      "desc": "本地页面化工具（如需外网请补上线链接）",
+      "url": ""
+    }
+  ]
+}
