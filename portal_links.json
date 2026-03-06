@@ -1,4 +1,4 @@
-{
+﻿{
   "apps": [
     {
       "name": "智能翻译工作台",
@@ -7,18 +7,18 @@
     },
     {
       "name": "视频字幕提取",
-      "desc": "请填入视频字幕提取的上线链接",
-      "url": ""
+      "desc": "Streamlit Community Cloud",
+      "url": "https://videosubtitleapp-eyuhaqwy7bszglygamyzb4.streamlit.app/"
     },
     {
       "name": "读取图包文字",
-      "desc": "本地页面化工具（如需外网请补上线链接）",
-      "url": ""
+      "desc": "Streamlit Community Cloud",
+      "url": "https://fh9v5tyqrwyagknnrs9jws.streamlit.app/"
     },
     {
       "name": "查询文案侵权词",
-      "desc": "本地页面化工具（如需外网请补上线链接）",
-      "url": ""
+      "desc": "Streamlit Community Cloud",
+      "url": "https://copyrighttermsapp-gh8vpcg9jrnskq39ghyslw.streamlit.app/"
     }
   ]
 }

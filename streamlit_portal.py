@@ -13,20 +13,54 @@ def load_links() -> dict:
         return json.load(f)
 
 
-def link_card(title: str, desc: str, url: str) -> None:
-    st.markdown(f"### {title}")
-    st.caption(desc)
+def inject_styles() -> None:
+    st.markdown(
+        """
+        <style>
+        .stApp {
+            background: #ffffff;
+        }
+        .portal-title {
+            margin: 0 0 8px 0;
+            font-size: 36px;
+            font-weight: 700;
+            color: #111827;
+        }
+        .card {
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 16px;
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+            margin-bottom: 12px;
+            min-height: 120px;
+        }
+        .card-title {
+            margin: 0 0 12px 0;
+            font-size: 20px;
+            font-weight: 600;
+            color: #111827;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def link_card(title: str, url: str) -> None:
+    st.markdown('<div class="card">', unsafe_allow_html=True)
+    st.markdown(f'<p class="card-title">{title}</p>', unsafe_allow_html=True)
     if url:
         st.link_button("打开页面", url, use_container_width=True)
     else:
-        st.warning("尚未配置上线链接")
-    st.divider()
+        st.button("打开页面", disabled=True, use_container_width=True)
+    st.markdown("</div>", unsafe_allow_html=True)
 
 
 def main() -> None:
     st.set_page_config(page_title="统一工作台门户", page_icon="🧭", layout="wide")
-    st.title("统一工作台门户")
-    st.caption("统一入口访问各模块（外链跳转模式）")
+    inject_styles()
+    st.markdown('<h1 class="portal-title">统一工作台门户</h1>', unsafe_allow_html=True)
 
     cfg = load_links()
     apps = cfg.get("apps", [])
@@ -34,15 +68,7 @@ def main() -> None:
     left, right = st.columns(2)
     for i, item in enumerate(apps):
         with (left if i % 2 == 0 else right):
-            link_card(
-                item.get("name", "未命名模块"),
-                item.get("desc", ""),
-                item.get("url", "").strip(),
-            )
-
-    with st.expander("配置说明"):
-        st.code(str(LINKS_PATH), language="text")
-        st.write("修改 `portal_links.json` 中的 URL 即可更新跳转地址。")
+            link_card(item.get("name", "未命名模块"), item.get("url", "").strip())
 
 
 if __name__ == "__main__":
